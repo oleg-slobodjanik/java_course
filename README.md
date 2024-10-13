@@ -1,1 +1,3 @@
 # java_course
+
+Example
