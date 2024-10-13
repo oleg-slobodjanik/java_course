@@ -1,6 +1,6 @@
-package homework_2;
+package homework2;
 
-import java.util.*;
+import java.util.List;
 
 class Student {
     String name;

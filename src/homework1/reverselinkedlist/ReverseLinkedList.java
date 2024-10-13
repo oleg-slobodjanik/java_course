@@ -1,4 +1,4 @@
-package homework_1.reverse_linked_list;
+package homework1.reverselinkedlist;
 
 public class ReverseLinkedList {
 

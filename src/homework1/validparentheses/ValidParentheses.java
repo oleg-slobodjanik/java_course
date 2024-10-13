@@ -1,4 +1,4 @@
-package homework_1.valid_parentheses;
+package homework1.validparentheses;
 
 import java.util.HashMap;
 import java.util.Stack;

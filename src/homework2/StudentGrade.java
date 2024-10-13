@@ -1,13 +1,13 @@
-package homework_2;
+package homework2;
 
-class StudentGradeRecord {
-    String studentName;
-    String school;
-    String subject;
+class StudentGrade {
+    private String studentName;
+    private String school;
+    private String subject;
     double score;
 
     // Constructor
-    public StudentGradeRecord(String studentName, String school, String subject, double score) {
+    public StudentGrade(String studentName, String school, String subject, double score) {
         this.studentName = studentName;
         this.school = school;
         this.subject = subject;

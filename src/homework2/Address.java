@@ -1,4 +1,4 @@
-package homework_2;
+package homework2;
 
 class Address {
     String city;
