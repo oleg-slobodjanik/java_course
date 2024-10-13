@@ -1,3 +1,3 @@
-# java_course
+# WL JAVA Course
 
-Example
+## Home Work
