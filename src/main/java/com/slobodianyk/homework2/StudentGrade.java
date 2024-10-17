@@ -1,4 +1,4 @@
-package homework2;
+package com.slobodianyk.homework2;
 
 class StudentGrade {
     private String studentName;
