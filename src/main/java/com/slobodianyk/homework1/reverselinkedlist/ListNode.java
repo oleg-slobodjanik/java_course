@@ -1,4 +1,4 @@
-package homework1.reverselinkedlist;
+package com.slobodianyk.homework1.reverselinkedlist;
 
 class ListNode {
     int val;

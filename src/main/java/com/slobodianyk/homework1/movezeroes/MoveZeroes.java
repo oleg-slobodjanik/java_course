@@ -1,4 +1,4 @@
-package homework1.movezeroes;
+package com.slobodianyk.homework1.movezeroes;
 
 public class MoveZeroes {
     public void moveZeroes(int[] nums) {

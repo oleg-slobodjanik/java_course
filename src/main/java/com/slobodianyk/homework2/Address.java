@@ -1,11 +1,11 @@
-package homework2;
+package com.slobodianyk.homework2;
 
 class Address {
     String city;
     String street;
 
     // Constructor
-    public Address(String city, String street) {
+    Address(String city, String street) {
         this.city = city;
         this.street = street;
     }
