@@ -1,17 +1,18 @@
 package com.slobodianyk.mokito.service.impl;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.verify;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.slobodianyk.homework3.User;
 import com.slobodianyk.homework3.UserRegistrationDto;
 import com.slobodianyk.homework3.UserServiceImpl;
 import com.slobodianyk.homework3.UserValidator;
 import com.slobodianyk.homework3.interfaces.UserRepository;
+import com.slobodianyk.homework3.interfaces.UserResponseDto;
 import com.slobodianyk.homework3.interfaces.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,12 +38,12 @@ public class UserServiceTest {
                 null,
                 "password",
                 "password");
-
-        doAnswer(invocation -> {
-            User u = invocation.getArgument(0);
-            u.setId(1L);
-            return null;
-        }).when(userRepository).save(any(User.class));
+        when(userRepository.findById(1L))
+                .thenReturn(Optional.of(new User(
+                        1L,
+                        "user@example.com",
+                        "+123456789",
+                        "password")));
 
         userService.registerUser(userDto);
 
@@ -59,8 +60,24 @@ public class UserServiceTest {
         );
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
-        UserService.UserResponseDto response = userService.getUserById(1L);
+        UserResponseDto response = userService.getUserById(1L);
         assertEquals(1L, response.id());
         assertEquals("test@test.com", response.email());
+    }
+
+    @Test
+    public void testFindById() {
+        // Given
+        User user = new User(
+                1L,
+                "user@example.com",
+                "+123456789",
+                "password");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        UserResponseDto result = userService.getUserById(1L);
+
+        assertNotNull(result);
+        assertEquals(1L, result.id());
     }
 }

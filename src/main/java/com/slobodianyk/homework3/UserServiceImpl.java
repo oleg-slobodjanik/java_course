@@ -1,6 +1,7 @@
 package com.slobodianyk.homework3;
 
 import com.slobodianyk.homework3.interfaces.UserRepository;
+import com.slobodianyk.homework3.interfaces.UserResponseDto;
 import com.slobodianyk.homework3.interfaces.UserService;
 
 public class UserServiceImpl implements UserService {

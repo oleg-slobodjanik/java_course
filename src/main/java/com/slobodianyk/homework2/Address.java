@@ -5,7 +5,7 @@ class Address {
     String street;
 
     // Constructor
-    public Address(String city, String street) {
+    Address(String city, String street) {
         this.city = city;
         this.street = street;
     }

@@ -2,7 +2,7 @@ package com.slobodianyk.homework3;
 
 import com.slobodianyk.homework3.interfaces.UserRepository;
 import com.slobodianyk.homework3.interfaces.UserService;
-import com.slobodianyk.homework3.interfaces.UserService.UserResponseDto;
+import com.slobodianyk.homework3.interfaces.UserResponseDto;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,16 +30,16 @@ public class Main {
         // ===========================================================
 
         // Ініціалізуємо репозиторій і сервіси для роботи з MySQL
-        UserRepository userRepository = new UserRepositoryJdbcImpl();  // MySQL JDBC реалізація
+        UserRepository userRepository = new UserRepositoryJdbcImpl(); // MySQL JDBC реалізація
         UserValidator userValidator = new UserValidator();
         UserService userService = new UserServiceImpl(userRepository, userValidator);
 
         // Створюємо DTO для реєстрації нового користувача
         UserRegistrationDto userDto = new UserRegistrationDto(
-                "test@test.com",
-                "+5263242878",
-                "password123",
-                "password123"
+                "test4@test.com",
+                "+93743453464",
+                "password12344",
+                "password12344"
         );
 
         // Реєструємо користувача

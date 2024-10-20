@@ -17,4 +17,22 @@ public class UserValidator {
             throw new IllegalArgumentException("Passwords do not match");
         }
     }
+
+    public boolean isValidEmail(String email) {
+        return email != null && email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+    }
+
+    public boolean isValidPhoneNumber(String phoneNumber) {
+        return phoneNumber == null || phoneNumber.matches("^\\+?\\d{10,15}$");
+    }
+
+    public boolean passwordsMatch(String password, String repeatPassword) {
+        return password != null && password.equals(repeatPassword);
+    }
+
+    public boolean isValid(UserRegistrationDto userDto) {
+        return isValidEmail(userDto.getEmail())
+                && isValidPhoneNumber(userDto.getPhoneNumber())
+                && passwordsMatch(userDto.getPassword(), userDto.getRepeatPassword());
+    }
 }

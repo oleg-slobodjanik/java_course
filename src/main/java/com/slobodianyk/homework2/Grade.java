@@ -5,7 +5,7 @@ class Grade {
     double score;
 
     // Constructor
-    public Grade(String subject, double score) {
+    Grade(String subject, double score) {
         this.subject = subject;
         this.score = score;
     }

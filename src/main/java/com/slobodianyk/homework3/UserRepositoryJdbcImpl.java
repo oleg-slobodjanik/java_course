@@ -13,20 +13,19 @@ import java.util.Optional;
 public class UserRepositoryJdbcImpl implements UserRepository {
 
     // MySQL connection details
-    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/java_db";  // URL до вашої MySQL бази
-    private static final String MYSQL_USERNAME = "root";  // ваше MySQL ім'я користувача
-    private static final String MYSQL_PASSWORD = "123";  // ваш MySQL пароль
+    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/java_db";
+    private static final String MYSQL_USERNAME = "root";
+    private static final String MYSQL_PASSWORD = "123";
 
     public UserRepositoryJdbcImpl() {
         // Підключення до MySQL і створення таблиці користувачів, якщо вона ще не існує
-
         try (Connection connection = DriverManager.getConnection(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
              Statement stmt = connection.createStatement()) {
-            String createTableSql = "CREATE TABLE IF NOT EXISTS users (" +
-                    "id BIGINT AUTO_INCREMENT PRIMARY KEY, " +
-                    "email VARCHAR(255) NOT NULL, " +
-                    "phone_number VARCHAR(20), " +
-                    "password VARCHAR(255) NOT NULL)";
+            String createTableSql = "CREATE TABLE IF NOT EXISTS users ("
+                    + "id BIGINT AUTO_INCREMENT PRIMARY KEY, "
+                    + "email VARCHAR(255) NOT NULL, "
+                    + "phone_number VARCHAR(20), "
+                    + "password VARCHAR(255) NOT NULL)";
             stmt.execute(createTableSql);
         } catch (SQLException e) {
             throw new RuntimeException("Error initializing the database", e);
@@ -49,7 +48,7 @@ public class UserRepositoryJdbcImpl implements UserRepository {
             if (affectedRows > 0) {
                 try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
-                        user.setId(generatedKeys.getLong(1));  // Отримуємо ID користувача
+                        user.setId(generatedKeys.getLong(1)); // Отримуємо ID користувача
                     }
                 }
             }
