@@ -1,4 +1,4 @@
-package homework1.validparentheses;
+package com.slobodianyk.homework1.validparentheses;
 
 import java.util.HashMap;
 import java.util.Stack;
@@ -31,9 +31,9 @@ public class ValidParentheses {
     public static void main(String[] args) {
         ValidParentheses validParentheses = new ValidParentheses();
 
-        System.out.println(validParentheses.isValid("()"));      // true
-        System.out.println(validParentheses.isValid("()[]{}"));  // true
-        System.out.println(validParentheses.isValid("(]"));      // false
-        System.out.println(validParentheses.isValid("([])"));    // true
+        System.out.println(validParentheses.isValid("()")); // true
+        System.out.println(validParentheses.isValid("()[]{}")); // true
+        System.out.println(validParentheses.isValid("(]")); // false
+        System.out.println(validParentheses.isValid("([])")); // true
     }
 }

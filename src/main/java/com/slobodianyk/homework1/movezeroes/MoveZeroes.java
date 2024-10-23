@@ -1,4 +1,4 @@
-package homework1.movezeroes;
+package com.slobodianyk.homework1.movezeroes;
 
 public class MoveZeroes {
     public void moveZeroes(int[] nums) {
@@ -16,6 +16,7 @@ public class MoveZeroes {
         }
     }
 
+    @SuppressWarnings("checkstyle:MagicNumber")
     public static void main(String[] args) {
         MoveZeroes solution = new MoveZeroes();
 
