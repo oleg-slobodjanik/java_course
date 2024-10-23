@@ -5,7 +5,7 @@ import com.slobodianyk.homework3.User;
 import java.util.Optional;
 
 public interface UserRepository {
-    void save(User user);
+    User save(User user);
 
     Optional<User> findById(Long userId);
 }

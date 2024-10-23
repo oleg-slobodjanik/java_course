@@ -12,13 +12,11 @@ import java.util.Optional;
 
 public class UserRepositoryJdbcImpl implements UserRepository {
 
-    // MySQL connection details
     private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/java_db";
     private static final String MYSQL_USERNAME = "root";
     private static final String MYSQL_PASSWORD = "123";
 
     public UserRepositoryJdbcImpl() {
-        // Підключення до MySQL і створення таблиці користувачів, якщо вона ще не існує
         try (Connection connection = DriverManager.getConnection(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
              Statement stmt = connection.createStatement()) {
             String createTableSql = "CREATE TABLE IF NOT EXISTS users ("
@@ -32,8 +30,9 @@ public class UserRepositoryJdbcImpl implements UserRepository {
         }
     }
 
+    @SuppressWarnings("checkstyle:MagicNumber")
     @Override
-    public void save(User user) {
+    public User save(User user) {
         String sql = "INSERT INTO users (email, phone_number, password) VALUES (?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
@@ -55,6 +54,7 @@ public class UserRepositoryJdbcImpl implements UserRepository {
         } catch (SQLException e) {
             throw new RuntimeException("Error saving user", e);
         }
+        return user;
     }
 
     @Override

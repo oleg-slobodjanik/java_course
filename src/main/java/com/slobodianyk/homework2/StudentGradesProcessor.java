@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class StudentGradesProcessor {
+    @SuppressWarnings("checkstyle:MagicNumber")
     public static void main(String[] args) {
         List<Student> students = Arrays.asList(
                 new Student("Oleg", 16, Arrays.asList(new Grade("Math", 88), new Grade("Science", 92)), "High School A", new Address("Kharkiv", "1st Ave")),
@@ -16,10 +18,10 @@ public class StudentGradesProcessor {
         );
 
         List<StudentGrade> topGrades = students.stream()
-                .filter(s -> s.age > 15 && "Kharkiv".equals(s.address.city))
-                .flatMap(s -> s.grades.stream()
-                        .map(g -> new StudentGrade(s.name, s.school, g.subject, g.score)))
-                .sorted(Comparator.comparingDouble((StudentGrade r) -> r.score).reversed())
+                .filter(s -> s.getAge() > 15 && "Kharkiv".equals(s.getAddress().city()))
+                .flatMap(s -> s.getGrades().stream()
+                        .map(g -> new StudentGrade(s.getName(), s.getSchool(), g.subject, g.score)))
+                .sorted(Comparator.comparingDouble((StudentGrade r) -> r.getScore()).reversed())
                 .limit(3)
                 .collect(Collectors.toList());
 

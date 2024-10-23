@@ -16,6 +16,7 @@ public class MoveZeroes {
         }
     }
 
+    @SuppressWarnings("checkstyle:MagicNumber")
     public static void main(String[] args) {
         MoveZeroes solution = new MoveZeroes();
 

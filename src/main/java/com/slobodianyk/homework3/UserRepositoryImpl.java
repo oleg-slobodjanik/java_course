@@ -11,9 +11,10 @@ public class UserRepositoryImpl implements UserRepository {
     private long currentId = 1;
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         user.setId(currentId++);
         users.put(user.getId(), user);
+        return user;
     }
 
     @Override

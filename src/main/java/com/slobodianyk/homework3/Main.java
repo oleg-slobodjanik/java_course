@@ -4,49 +4,22 @@ import com.slobodianyk.homework3.interfaces.UserRepository;
 import com.slobodianyk.homework3.interfaces.UserService;
 import com.slobodianyk.homework3.interfaces.UserResponseDto;
 
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class Main {
     public static void main(String[] args) {
-//        UserRepository userRepository = new UserRepositoryImpl();
-//        UserValidator userValidator = new UserValidator();
-//        UserService userService = new UserServiceImpl(userRepository, userValidator);
-//
-//        // Створюємо DTO для реєстрації
-//        UserRegistrationDto userDto = new UserRegistrationDto(
-//                "example@test.com",
-//                "+1234567890",
-//                "password123",
-//                "password123");
-//
-//        // Реєструємо користувача, використовуючи метод registerUser
-//        UserResponseDto registeredUser = userService.registerUser(userDto);
-//
-//        // Реєструємо користувача
-//        System.out.println("User registered: " + registeredUser);
-//
-//        // Отримуємо користувача за ID
-//        UserResponseDto retrievedUser = userService.getUserById(registeredUser.id());
-//        System.out.println("Retrieved User: " + retrievedUser);
-
-        // ===========================================================
-
-        // Ініціалізуємо репозиторій і сервіси для роботи з MySQL
-        UserRepository userRepository = new UserRepositoryJdbcImpl(); // MySQL JDBC реалізація
+        UserRepository userRepository = new UserRepositoryJdbcImpl();
         UserValidator userValidator = new UserValidator();
         UserService userService = new UserServiceImpl(userRepository, userValidator);
 
-        // Створюємо DTO для реєстрації нового користувача
-        UserRegistrationDto userDto = new UserRegistrationDto(
-                "test4@test.com",
-                "+93743453464",
-                "password12344",
-                "password12344"
-        );
+        UserRegistrationDto userDto = new UserRegistrationDto();
+        userDto.setEmail("bob@gmail.com");
+        userDto.setPhoneNumber("+38085452937");
+        userDto.setPassword("password321");
+        userDto.setRepeatPassword("password321");
 
-        // Реєструємо користувача
         UserResponseDto registeredUser = userService.registerUser(userDto);
         System.out.println("User registered: " + registeredUser);
 
-        // Отримуємо користувача за ID
         UserResponseDto retrievedUser = userService.getUserById(registeredUser.id());
         System.out.println("Retrieved User: " + retrievedUser);
     }

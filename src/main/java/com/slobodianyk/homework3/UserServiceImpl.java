@@ -15,16 +15,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto registerUser(UserRegistrationDto userRegistrationDto) {
-        // 1. Валідація
-        userValidator.validate(userRegistrationDto);
+        userValidator.validateUserRegistration(userRegistrationDto);
 
-        // 2. Створюємо користувача
         User user = new User(null, userRegistrationDto.getEmail(), userRegistrationDto.getPhoneNumber(), userRegistrationDto.getPassword());
 
-        // 3. Зберігаємо в репозиторій
         userRepository.save(user);
 
-        // 4. Повертаємо результат
         return new UserResponseDto(user.getId(), user.getEmail(), user.getPhoneNumber());
     }
 

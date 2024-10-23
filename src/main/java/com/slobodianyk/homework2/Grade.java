@@ -1,7 +1,9 @@
 package com.slobodianyk.homework2;
 
 class Grade {
+    @SuppressWarnings("checkstyle:VisibilityModifier")
     String subject;
+    @SuppressWarnings("checkstyle:VisibilityModifier")
     double score;
 
     // Constructor

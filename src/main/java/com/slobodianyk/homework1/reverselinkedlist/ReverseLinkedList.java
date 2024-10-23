@@ -1,5 +1,6 @@
 package com.slobodianyk.homework1.reverselinkedlist;
 
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class ReverseLinkedList {
 
 //    public static ListNode reverseList(ListNode head) {
@@ -30,10 +31,10 @@ public class ReverseLinkedList {
         ListNode curr = head;
 
         while (curr != null) {
-            ListNode nextTemp = curr.next;  // тимчасово зберігаємо наступний вузол
-            curr.next = prev;               // змінюємо вказівник
-            prev = curr;                    // рухаємо prev вперед
-            curr = nextTemp;                // рухаємо curr вперед
+            ListNode nextTemp = curr.next; // тимчасово зберігаємо наступний вузол
+            curr.next = prev; // змінюємо вказівник
+            prev = curr; // рухаємо prev вперед
+            curr = nextTemp; // рухаємо curr вперед
         }
         return prev;
     }
@@ -51,6 +52,7 @@ public class ReverseLinkedList {
     }
 
 
+    @SuppressWarnings({"checkstyle:EmptyLineSeparator", "checkstyle:MagicNumber"})
     public static void main(String[] args) {
 
 
